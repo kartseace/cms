@@ -22,6 +22,10 @@
 		
 		confirmQuery($create_post_query);
 		
+		$the_post_id=mysqli_insert_id($connection);
+		
+		echo "<p class='bg-success'>Post Created. <a href='../post.php?p_id={$the_post_id}'>View Post</a> Or <a href='posts.php'>Edit More Posts</a> </p>";
+		
 	}
 
 
@@ -32,11 +36,9 @@
 
 
 <form action="" method="post" enctype="multipart/form-data">
-	
 	<div class="form-group">
 		<label for="title">Post Title</label>
 		<input type="text" class="form-control" name="title">
-		
 	</div>
 	
 <div class="form-group">
@@ -55,22 +57,25 @@
 			
 			echo "<option value='$cat_id'>$cat_title</option>";
 			
-			
 		}
-		
 		?>
 		
 	</select>	
 	</div>
-	
 	<div class="form-group">
 		<label for="title">Post Author</label>
 		<input type="text" class="form-control" name="author">
 	</div>
 	
 	<div class="form-group">
-		<label for="post_status">Post Status</label>
-		<input type="text" class="form-control" name="post_status">
+<!--		<label for="post_status">Post Status</label>-->
+		<select name="post_status" id="">
+			<option value="draft"> Post Status</option>
+			<option value="published">Publish</option>
+			<option value="draft">Draft</option>
+		</select>
+		
+<!--		<input type="text" class="form-control" name="post_status">-->
 	</div>
 	
 	<div class="form-group">
@@ -85,7 +90,7 @@
 	
 	<div class="form-group">
 		<label for="post_content">Post Content</label>
-		<textarea name="post_content" id="" cols="30" rows="10" class="form-control"></textarea>
+		<textarea name="post_content" id="body" cols="30" rows="10" class="form-control"></textarea>
 	</div>
 		
 		<div class="form-group">

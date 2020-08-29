@@ -22,7 +22,7 @@ while($row=mysqli_fetch_assoc($select_users)){
 	$username=$row['username'];		$user_password=$row['user_password'];
 	$user_firstname=$row['user_firstname'];
 	$user_lastname=$row['user_lastname'];	
-	$user_emali=$row['user_email'];
+	$user_email=$row['user_email'];
 	$user_image=$row['user_image'];	$user_role=$row['user_role'];
 
 
@@ -43,7 +43,7 @@ while($row=mysqli_fetch_assoc($select_users)){
 //		
 //		
 
-	echo "<td>$user_emali</td>";
+	echo "<td>$user_email</td>";
 	echo "<td>$user_role</td>";	
 
 //	$query="SELECT * FROM posts WHERE post_id=$comment_post_id";
